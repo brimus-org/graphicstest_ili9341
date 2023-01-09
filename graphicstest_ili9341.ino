@@ -111,7 +111,7 @@ void setup() {
 
 void loop(void) {
    for(uint8_t rotation=0; rotation<4; rotation++) {
-    tft.setRotation(3);
+    tft.setRotation(rotation);
     testText();
     delay(1000);
    }
@@ -134,9 +134,12 @@ unsigned long testFillScreen() {
 
 
 unsigned long testText() {
-  // tft.fillScreen(ILI9341_BLACK);
+  tft.fillScreen(ILI9341_BLACK);
   unsigned long start = micros();
   tft.setCursor(0, 0);
+  tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+  tft.println("Hello World!");
+  tft.setTextColor(ILI9341_YELLOW); tft.setTextSize(2);
   tft.setTextColor(ILI9341_WHITE);  
   tft.setTextSize(2);
   // tft.print("Temperature: ");
